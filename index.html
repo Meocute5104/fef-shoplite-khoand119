@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopLite - Discover premium electronics, clothing and jewelry</title>
     <!-- Bootstrap 5 CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- Bootstrap Icons CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/share_style.css">
     <link rel="stylesheet" href="css/index_style.css">
 </head>
+
 <body>
 
     <!-- Shared Header/Navbar -->
@@ -20,18 +23,18 @@
             <a href="index.html" class="nav-brand">
                 <i class="bi bi-lightning-charge-fill"></i>Shop<span>Lite</span>
             </a>
-            
+
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
                 <i class="bi bi-list"></i>
             </button>
-            
+
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="product.html">Products</a></li>
+                <!-- <li><a href="product.html">Products</a></li> -->
                 <li><a href="cart.html">My Cart</a></li>
                 <li><a href="register.html">Register</a></li>
             </ul>
-            
+
             <div class="nav-actions">
                 <a href="cart.html" class="btn-icon-link" aria-label="View Cart">
                     <i class="bi bi-bag"></i>
@@ -63,12 +66,15 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between gap-3 align-items-md-center mb-4">
                     <div class="search-box-wrapper w-100 max-w-sm" style="max-width: 350px;">
                         <div class="input-group">
-                            <span class="input-group-text bg-dark border-secondary text-secondary"><i class="bi bi-search"></i></span>
-                            <input type="text" id="searchInput" class="form-control bg-dark border-secondary text-light" placeholder="Search products...">
+                            <span class="input-group-text bg-dark border-secondary text-secondary"><i
+                                    class="bi bi-search"></i></span>
+                            <input type="text" id="searchInput" class="form-control bg-dark border-secondary text-light"
+                                placeholder="Search products...">
                         </div>
                     </div>
                     <div class="d-flex gap-2">
-                        <select id="sortSelect" class="form-select bg-dark border-secondary text-light" style="width: auto;">
+                        <select id="sortSelect" class="form-select bg-dark border-secondary text-light"
+                            style="width: auto;">
                             <option value="default">Sort: Default</option>
                             <option value="price-asc">Price: Low to High</option>
                             <option value="price-desc">Price: High to Low</option>
@@ -82,7 +88,8 @@
                     <!-- Static Skeleton Cards for Demo (Will be overwritten by JS fetch) -->
                     <div class="product-card">
                         <div class="product-image-container">
-                            <div class="spinner-border text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>
+                            <div class="spinner-border text-secondary" role="status"><span
+                                    class="visually-hidden">Loading...</span></div>
                         </div>
                         <div class="product-category">Category</div>
                         <h3 class="product-name">Loading Awesome Products...</h3>
@@ -127,22 +134,22 @@
                 <div class="footer-brand">
                     <div class="brand-logo"><i class="bi bi-lightning-charge-fill text-indigo"></i>ShopLite</div>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Shop Pages</h4>
                     <ul>
                         <li><a href="index.html">Home / Store</a></li>
-                        <li><a href="product.html">Product Details</a></li>
+                        <!-- <li><a href="product.html">Product Details</a></li> -->
                         <li><a href="cart.html">Shopping Cart</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Support</h4>
                 </div>
-                
+
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2026 ShopLite. All rights reserved. Built for FEF Long Assignment.</p>
                 <p>Designed by khoand119</p>
@@ -151,8 +158,10 @@
     </footer>
 
     <!-- Bootstrap 5 Bundle JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
     <!-- Custom Scripts -->
     <script src="js/api.js"></script>
     <script src="js/cart.js"></script>
@@ -164,4 +173,5 @@
         });
     </script>
 </body>
+
 </html>

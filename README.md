@@ -1,5 +1,7 @@
 # ShopLite - Mini E-Commerce Client Website
 
+> **Live Demo:** [https://meocute5104.github.io/fef-shoplite-khoand119/](https://meocute5104.github.io/fef-shoplite-khoand119/)
+
 Welcome to **ShopLite** — a lightweight, client-side, multi-page shopping platform. This application interacts with the public **Fake Store API** to dynamically display collections, item specifications, and manage shopping carts directly on the browser.
 
 Designed as part of the **FEF (Front-End Foundation) Long Assignment**.
