@@ -74,7 +74,7 @@ async function initDetailPage() {
         btnAdd.addEventListener('click', () => {
             if (currentProduct) {
                 addToCart(currentProduct, currentQuantity);
-                alert(`Added ${currentQuantity} of "${currentProduct.title}" to your shopping cart!`);
+                showToast(`Added ${currentQuantity} of "${currentProduct.title}" to your shopping cart!`, 'success');
                 currentQuantity = 1;
                 qtyText.textContent = '1';
             }

@@ -7,6 +7,8 @@ let allProducts = [];      // Global copy of all products from API
 let activeCategory = 'all'; // Current category filter
 let searchQuery = '';      // Current search box query
 let activeSort = 'default'; // Current sort option
+let visibleProductsCount = 6;
+const PRODUCTS_PER_PAGE = 6;
 
 document.addEventListener('DOMContentLoaded', () => {
     initHomePage();
@@ -41,14 +43,13 @@ async function initHomePage() {
         loader.classList.add('d-none');
     }
 
-    // Set up search event listener
+    // Set up search event listener with proper 300ms debounce
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
-        // Basic debounce: wait slightly for user typing, or search on input
-        searchInput.addEventListener('input', (e) => {
+        searchInput.addEventListener('input', debounce((e) => {
             searchQuery = e.target.value;
-            filterAndSortProducts();
-        });
+            filterAndSortProducts(true);
+        }, 300));
     }
 
     // Set up sort event listener
@@ -56,7 +57,16 @@ async function initHomePage() {
     if (sortSelect) {
         sortSelect.addEventListener('change', (e) => {
             activeSort = e.target.value;
-            filterAndSortProducts();
+            filterAndSortProducts(true);
+        });
+    }
+
+    // Set up Load More button listener
+    const btnLoadMore = document.getElementById('btnLoadMore');
+    if (btnLoadMore) {
+        btnLoadMore.addEventListener('click', () => {
+            visibleProductsCount += PRODUCTS_PER_PAGE;
+            filterAndSortProducts(false); // Do not reset visible count
         });
     }
 
@@ -71,7 +81,7 @@ async function initHomePage() {
         
         if (product) {
             addToCart(product, 1);
-            alert(`Added "${product.title}" to cart!`);
+            showToast(`Added "${product.title}" to cart!`, 'success');
         }
     });
 }
@@ -115,9 +125,24 @@ async function setupCategoryFilters() {
 }
 
 /**
+ * Debounce helper function
+ */
+function debounce(func, delay) {
+    let timeoutId;
+    return function (...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delay);
+    };
+}
+
+/**
  * Filter and sort products simultaneously based on state variables
  */
-function filterAndSortProducts() {
+function filterAndSortProducts(resetPage = true) {
+    if (resetPage) {
+        visibleProductsCount = PRODUCTS_PER_PAGE;
+    }
+
     let list = [...allProducts];
 
     // 1. Category Filter
@@ -143,8 +168,21 @@ function filterAndSortProducts() {
         list.sort((a, b) => a.title.localeCompare(b.title));
     }
 
+    // Slice for pagination / load more
+    const paginatedList = list.slice(0, visibleProductsCount);
+
     // Render results
-    renderProductGrid(list);
+    renderProductGrid(paginatedList);
+
+    // Toggle Load More button visibility
+    const loadMoreContainer = document.getElementById('loadMoreContainer');
+    if (loadMoreContainer) {
+        if (visibleProductsCount < list.length) {
+            loadMoreContainer.classList.remove('d-none');
+        } else {
+            loadMoreContainer.classList.add('d-none');
+        }
+    }
 }
 
 /**

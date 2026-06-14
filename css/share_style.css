@@ -308,3 +308,109 @@ footer {
         text-align: center;
     }
 }
+
+/* ===================================================
+   Custom Toast & Load More Button Styles
+   =================================================== */
+
+/* Load More Button Styling */
+.btn-load-more {
+    background-color: transparent;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 10px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-load-more:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.btn-load-more:active {
+    transform: translateY(0);
+}
+
+/* Custom Toast Notification System */
+.toast-container-custom {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    width: 90%;
+}
+
+.toast-custom {
+    background-color: #ffffff;
+    color: #333333;
+    border-left: 4px solid #007bff;
+    padding: 12px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    animation: toastSlideIn 0.3s ease-out, toastFadeOut 0.3s ease-in 2.7s forwards;
+}
+
+.toast-custom.success {
+    border-left-color: #28a745;
+}
+
+.toast-custom.success i {
+    color: #28a745;
+}
+
+.toast-custom.error {
+    border-left-color: #dc3545;
+}
+
+.toast-custom.error i {
+    color: #dc3545;
+}
+
+.toast-custom.info {
+    border-left-color: #007bff;
+}
+
+.toast-custom.info i {
+    color: #007bff;
+}
+
+@keyframes toastSlideIn {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toastFadeOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+}
+

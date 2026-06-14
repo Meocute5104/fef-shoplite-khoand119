@@ -5,6 +5,43 @@
 
 const CART_STORAGE_KEY = 'shoplite_cart';
 
+/**
+ * Display a custom Toast notification at the top-right of the page
+ * @param {string} message - The text to show inside the toast
+ * @param {string} type - Toast type: 'success', 'error', 'info'
+ */
+function showToast(message, type = 'success') {
+    let container = document.getElementById('toastContainerCustom');
+    if (!container) {
+        container = document.createElement('div');
+        container.id = 'toastContainerCustom';
+        container.className = 'toast-container-custom';
+        document.body.appendChild(container);
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = `toast-custom ${type}`;
+    
+    // Choose icon based on type
+    let iconClass = 'bi-check-circle-fill';
+    if (type === 'error') {
+        iconClass = 'bi-exclamation-triangle-fill';
+    } else if (type === 'info') {
+        iconClass = 'bi-info-circle-fill';
+    }
+    
+    toast.innerHTML = `<i class="bi ${iconClass}"></i><span>${message}</span>`;
+    container.appendChild(toast);
+    
+    // Automatically remove toast after 3 seconds
+    setTimeout(() => {
+        toast.remove();
+        if (container.children.length === 0) {
+            container.remove();
+        }
+    }, 3000);
+}
+
 // -------------------------------------------------------------------------
 // Shared Cart Functions (Reusable across all pages)
 // -------------------------------------------------------------------------
@@ -112,7 +149,7 @@ function initCartPage() {
     const btnCheckout = document.getElementById('btnCheckout');
     if (btnCheckout) {
         btnCheckout.addEventListener('click', () => {
-            alert('Thank you for your order! Checkout simulation successful.');
+            showToast('Thank you for your order! Checkout simulation successful.', 'success');
             saveCart([]);
             renderCart();
         });
