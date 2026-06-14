@@ -1,0 +1,15 @@
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Dependencies (if any in future)
+node_modules/
+dist/
+build/
+*.log
+
+plan
+
+plan/

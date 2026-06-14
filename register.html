@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopLite - Membership Registration</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/share_style.css">
+    <link rel="stylesheet" href="css/register_style.css">
+</head>
+<body>
+
+    <!-- Shared Header/Navbar -->
+    <header>
+        <div class="navbar-custom">
+            <a href="index.html" class="nav-brand">
+                <i class="bi bi-lightning-charge-fill"></i>Shop<span>Lite</span>
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="cart.html">My Cart</a></li>
+                <li><a href="register.html" class="active">Register</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="cart.html" class="btn-icon-link" aria-label="View Cart">
+                    <i class="bi bi-bag"></i>
+                    <span class="badge-count" id="cartBadge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="app-container">
+            <div class="form-card">
+                <div class="form-header">
+                    <h2>Create Account</h2>
+                    <p>Join ShopLite to get exclusive discounts, order tracking, and more.</p>
+                </div>
+
+                <!-- Registration Success Message -->
+                <div class="alert-success-custom" id="registrationSuccess">
+                    <i class="bi bi-check-circle-fill me-2"></i> Account successfully created! Welcome to ShopLite.
+                </div>
+
+                <!-- Form -->
+                <form id="registrationForm" novalidate>
+                    <!-- Full Name -->
+                    <div class="form-group" id="groupFullName">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" class="form-control-custom" placeholder="John Doe">
+                        <span class="error-feedback" id="errorFullName">Please enter your full name.</span>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="form-group" id="groupEmail">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control-custom" placeholder="name@example.com">
+                        <span class="error-feedback" id="errorEmail">Please enter a valid email address.</span>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group" id="groupPassword">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control-custom" placeholder="At least 6 characters">
+                        <span class="error-feedback" id="errorPassword">Password must be at least 6 characters.</span>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group" id="groupPhone">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control-custom" placeholder="e.g. +84 123 456 789">
+                        <span class="error-feedback" id="errorPhone">Please enter a valid phone number.</span>
+                    </div>
+
+                    <!-- Preferred Category -->
+                    <div class="form-group" id="groupPreferredCategory">
+                        <label for="preferredCategory">Preferred Shopping Category</label>
+                        <select id="preferredCategory" class="form-control-custom" style="background-image: url('data:image/svg+xml;utf8,<svg fill=%22white%22 height=%2224%22 viewBox=%220 0 24 24%22 width=%2224%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/><path d=%22M0 0h24v24Hz%22 fill=%22none%22/></svg>'); background-repeat: no-repeat; background-position: right 12px center; -webkit-appearance: none; -moz-appearance: none;">
+                            <option value="">-- Select Preference --</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="jewelery">Jewelery</option>
+                            <option value="mens">Men's Clothing</option>
+                            <option value="womens">Women's Clothing</option>
+                        </select>
+                        <span class="error-feedback" id="errorPreferredCategory">Please select your preferred category.</span>
+                    </div>
+
+                    <!-- Terms & Conditions Checkbox -->
+                    <div class="form-group" id="groupTerms">
+                        <label class="checkbox-custom">
+                            <input type="checkbox" id="agreeTerms">
+                            <span>I agree to the Terms of Service and Privacy Policy</span>
+                        </label>
+                        <span class="error-feedback" id="errorTerms" style="margin-left: 26px;">You must agree to the terms to continue.</span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn-primary-custom w-100 py-3 mt-2" id="btnSubmit">
+                        Register Account <i class="bi bi-person-plus-fill"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer>
+        <div class="app-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-logo"><i class="bi bi-lightning-charge-fill text-indigo"></i>ShopLite</div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Shop Pages</h4>
+                    <ul>
+                        <li><a href="index.html">Home / Store</a></li>
+                        <li><a href="product.html">Product Details</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Support</h4>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ShopLite. All rights reserved. Built for FEF Long Assignment.</p>
+                <p>Designed by khoand119</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/register.js"></script>
+    <script>
+        // Simple Navbar active toggler
+        document.getElementById('navToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

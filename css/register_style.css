@@ -1,0 +1,90 @@
+/* ===================================================
+   SHOPSLITE - Register Page Styles (register_style.css)
+   Contains form components, validation feedbacks, alerts
+   =================================================== */
+
+/* Forms & Validation (Register/Contact Page) */
+.form-card {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 30px;
+    max-width: 450px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.form-header p {
+    color: #666666;
+    font-size: 14px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control-custom {
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-control-custom:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.checkbox-custom {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.error-feedback {
+    color: #dc3545;
+    font-size: 12px;
+    display: none;
+    margin-top: 5px;
+}
+
+.form-group.has-error .form-control-custom {
+    border-color: #dc3545;
+}
+
+.form-group.has-error .error-feedback {
+    display: block;
+}
+
+.alert-success-custom {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+}

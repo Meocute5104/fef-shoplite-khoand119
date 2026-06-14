@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopLite - Shopping Cart</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/share_style.css">
+    <link rel="stylesheet" href="css/cart_style.css">
+</head>
+<body>
+
+    <!-- Shared Header/Navbar -->
+    <header>
+        <div class="navbar-custom">
+            <a href="index.html" class="nav-brand">
+                <i class="bi bi-lightning-charge-fill"></i>Shop<span>Lite</span>
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <i class="bi bi-list"></i>
+            </button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="cart.html" class="active">My Cart</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="cart.html" class="btn-icon-link" aria-label="View Cart">
+                    <i class="bi bi-bag"></i>
+                    <span class="badge-count" id="cartBadge">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="app-container">
+            <h1 class="mb-4 font-weight-800">Shopping Cart</h1>
+
+            <!-- Empty Cart State -->
+            <div class="cart-empty-state d-none" id="cartEmptyState">
+                <i class="bi bi-cart-x"></i>
+                <h3>Your Cart is Empty</h3>
+                <p class="text-secondary mb-4">You have no items in your shopping cart. Add some products and start shopping!</p>
+                <a href="index.html#products" class="btn-primary-custom">
+                    <i class="bi bi-arrow-left"></i> Start Shopping
+                </a>
+            </div>
+
+            <!-- Cart Split Layout (Items on Left, Totals on Right) -->
+            <div class="cart-split-layout" id="cartSplitContent">
+                <!-- Cart Items Container -->
+                <div class="cart-items-panel" id="cartItemsList">
+                    <!-- Static Skeleton Items (Will be dynamic via js/cart.js) -->
+                    <div class="cart-item-row">
+                        <div class="cart-item-img">
+                            <div class="spinner-border text-secondary" role="status"><span class="visually-hidden">Loading...</span></div>
+                        </div>
+                        <div class="cart-item-details">
+                            <h4>Loading Item Details...</h4>
+                            <p>Loading...</p>
+                        </div>
+                        <div class="cart-item-qty">
+                            <button class="qty-btn disabled">-</button>
+                            <span class="qty-val">1</span>
+                            <button class="qty-btn disabled">+</button>
+                        </div>
+                        <div class="cart-item-price">$0.00</div>
+                        <button class="cart-item-remove disabled"><i class="bi bi-trash"></i></button>
+                    </div>
+                </div>
+
+                <!-- Cart Summary Panel -->
+                <div class="summary-panel">
+                    <h3>Order Summary</h3>
+                    
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="cartSubtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="cartShipping">FREE</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (Estimated)</span>
+                        <span id="cartTax">$0.00</span>
+                    </div>
+                    
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="cartTotal">$0.00</span>
+                    </div>
+
+                    <div class="d-flex flex-column gap-3">
+                        <button class="btn-primary-custom w-100 py-3" id="btnCheckout">
+                            Proceed to Checkout <i class="bi bi-credit-card"></i>
+                        </button>
+                        <button class="btn-secondary-custom w-100 py-3 text-danger border-danger" id="btnClearCart" style="--border-color: rgba(244, 63, 94, 0.2);">
+                            <i class="bi bi-trash3"></i> Clear Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer>
+        <div class="app-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-logo"><i class="bi bi-lightning-charge-fill text-indigo"></i>ShopLite</div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Shop Pages</h4>
+                    <ul>
+                        <li><a href="index.html">Home / Store</a></li>
+                        <li><a href="product.html">Product Details</a></li>
+                        <li><a href="cart.html">Shopping Cart</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Support</h4>
+                </div>
+                
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ShopLite. All rights reserved. Built for FEF Long Assignment.</p>
+                <p>Designed by khoand119</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap 5 Bundle JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Simple Navbar active toggler
+        document.getElementById('navToggle').addEventListener('click', () => {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

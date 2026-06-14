@@ -1,0 +1,132 @@
+/* ===================================================
+   SHOPSLITE - Product Detail Page Styles (product_style.css)
+   Contains detail layouts, image gallery, rating details
+   =================================================== */
+
+/* Product Detail Page (Simple Split) */
+.product-detail-container {
+    display: flex;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 6px;
+    padding: 20px;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.detail-gallery {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #eeeeee;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+}
+
+.detail-gallery img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.detail-info {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-category {
+    color: #888888;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.detail-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #111111;
+}
+
+.detail-rating-price {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.detail-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #b12704;
+}
+
+.detail-rating-badge {
+    background-color: #f8f9fa;
+    border: 1px solid #dddddd;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.detail-description {
+    margin-bottom: 20px;
+}
+
+.detail-description h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.detail-description p {
+    color: #555555;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+/* Quantity Selection inside Detail Info */
+.cart-item-qty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.qty-btn {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #cccccc;
+    background-color: #eeeeee;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.qty-btn:hover {
+    background-color: #dddddd;
+}
+
+.qty-val {
+    font-weight: bold;
+}
+
+/* ===================================================
+   Responsive Mobile Adjustments (Product Detail Specific)
+   =================================================== */
+@media (max-width: 768px) {
+    .product-detail-container {
+        flex-direction: column;
+    }
+
+    .detail-gallery {
+        height: auto;
+    }
+}
